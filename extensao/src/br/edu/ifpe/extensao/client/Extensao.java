@@ -3,7 +3,6 @@ package br.edu.ifpe.extensao.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -33,21 +32,43 @@ public class Extensao implements EntryPoint
 	// * This is the entry point method.
 	// */
 	// Adicionando itens à página
-	private Label labelBoasVindas = new Label("Primeiro programa");
-	private Button botaoOK = new Button("Ok");
-	private TextBox caixaDeTexto = new TextBox();
+	// private Label labelBoasVindas = new Label("Primeiro programa");
+	// private Button botaoOK = new Button("Ok");
+	// private TextBox caixaDeTexto = new TextBox();
+	// Realizando uma média simples
+	private Label labelNumero1 = new Label("Primeiro Número");
+	private TextBox textoNumero1 = new TextBox();
+	private Label labelNumero2 = new Label("Segundo Número");
+	private TextBox textoNumero2 = new TextBox();
+	private Button botaoresposta = new Button("Calcular");
 	
 	public void onModuleLoad()
 	{
-		RootPanel.get().add(labelBoasVindas);
-		RootPanel.get().add(caixaDeTexto);
-		RootPanel.get().add(botaoOK);
-		// adicionando evento ao botão
-		botaoOK.addClickHandler(new ClickHandler()
+		// RootPanel.get().add(labelBoasVindas);
+		// RootPanel.get().add(caixaDeTexto);
+		// RootPanel.get().add(botaoOK);
+		// // adicionando evento ao botão
+		// botaoOK.addClickHandler(new ClickHandler()
+		// {
+		// @Override public void onClick(ClickEvent event)
+		// {
+		// Window.alert("Olá " + caixaDeTexto.getText());
+		// }
+		// });
+		RootPanel.get().add(labelNumero1);
+		RootPanel.get().add(textoNumero1);
+		RootPanel.get().add(labelNumero2);
+		RootPanel.get().add(textoNumero2);
+		RootPanel.get().add(botaoresposta);
+		botaoresposta.addClickHandler(new ClickHandler()
 		{
 			@Override public void onClick(ClickEvent event)
 			{
-				Window.alert("Olá " + caixaDeTexto.getText());
+				double primeiro = Double.parseDouble(textoNumero1.getText());
+				double segundo = Double.parseDouble(textoNumero2.getText());
+				double media = (primeiro + segundo) / 2;
+				// Para exibir a resposta
+				botaoresposta.setText("Média = " + media);
 			}
 		});
 		// // Todo este conteúdo dentro do método deve ser excluído
