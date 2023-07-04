@@ -3,7 +3,10 @@
 package br.edu.ifpe.extensao.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -21,23 +24,38 @@ public class Extensao implements EntryPoint
 		Window.alert("Bem-vindo.");
 		Label label1 = new Label("Isto é uma label.");
 		// Um label pode ser considerado um texto relativamente simples na
-		// página.
-		// Para adicionar um label à página ou qualquer outro elemento(também
-		// chamado de Widgets), é
-		// necessário outra classe chamada
-		// RootPanel. Então para adicionar um texto que tenha alguma
+		// página. Então para adicionar um texto que tenha alguma
 		// característica de HTML, se deve usar uma classe HTML do pacote do
 		// google.gwt
 		HTML htmlQualquer = new HTML("Isso é um HTML");
 		// Já que é um texto em HTML, então é suportado
 		HTML htmlEmNegrito = new HTML("<b>Label em Negrito<b>");
-		RootPanel.get().add(htmlQualquer);
-		RootPanel.get().add(htmlEmNegrito);
-		RootPanel.get().add(label1);
-		// Não somente essas características, também os de link.
 		String link = "https://www.gwtproject.org/doc/latest/tutorial/index.html";
-		// HTML linkReferenciado = new HTML("<a href=\"" +link+ "\">Link
-		// qualquer<\a>");
+		HTML linkReferenciado = new HTML("<a href=\"" + link + "\">Linkqualquer</a>");
+		//
+		// Adicionando um botão
+		Button botao = new Button("Clique aqui");
+		// Para adicionar uma ação ao botão usaremos o método abaixo que recebe
+		// um clique como parâmetro.
+		botao.addClickHandler(new ClickHandler()
+		{
+			@Override public void onClick(ClickEvent event)
+			{
+				Window.alert("fui clicado");
+			}
+		});
+		// Para adicionar um label à página ou qualquer outro elemento(também
+		// chamado de Widgets), é
+		// necessário outra classe chamada
+		// RootPanel.
+		RootPanel.get().add(label1);
+		RootPanel.get().add(htmlQualquer);
+		// A função deste método get() é utilizar um elemento dentro da página
+		// html
+		RootPanel.get().add(htmlEmNegrito);
+		RootPanel.get().add(linkReferenciado);
+		RootPanel.get().add(botao);
+		// Não somente essas características, também os de link.
 	}
 	//
 	// Linha toda comentada para ser feita do zero. Todo este corpo deve está
