@@ -1,3 +1,5 @@
+//Aula a ser vista - aula 3756 gwt Conhecendo a estrutura da aplicacao gwt
+//https://www.youtube.com/watch?v=GukLbyJc7MU&list=PL3821B1F5BC3E5C11&index=8
 package br.edu.ifpe.extensao.client;
 
 import com.google.gwt.core.client.EntryPoint;
