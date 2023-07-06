@@ -127,6 +127,7 @@ public class Extensao implements EntryPoint
 		RootPanel.get().add(curso2);
 		RootPanel.get().add(curso3);
 	}
+
 	//
 	// Linha toda comentada para ser feita do zero. Todo este corpo deve está
 	// dentro de Extensao.
@@ -301,4 +302,5 @@ public class Extensao implements EntryPoint
 	// // nameField.addKeyUpHandler(handler);
 	// // final do comentário
 	// }
+
 }
