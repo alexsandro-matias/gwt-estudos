@@ -2,14 +2,20 @@
 //https://www.youtube.com/watch?v=GukLbyJc7MU&list=PL3821B1F5BC3E5C11&index=8
 package br.edu.ifpe.extensao.client;
 
+import java.awt.Checkbox;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.PushButton;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.ToggleButton;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -31,31 +37,95 @@ public class Extensao implements EntryPoint
 		// Já que é um texto em HTML, então é suportado
 		HTML htmlEmNegrito = new HTML("<b>Label em Negrito<b>");
 		String link = "https://www.gwtproject.org/doc/latest/tutorial/index.html";
+		// Não somente essas características, também os de link.
 		HTML linkReferenciado = new HTML("<a href=\"" + link + "\">Linkqualquer</a>");
 		//
 		// Adicionando um botão
-		Button botao = new Button("Clique aqui");
+		Button botao = new Button("Veja o estado do botão abaixo");
 		// Para adicionar uma ação ao botão usaremos o método abaixo que recebe
 		// um clique como parâmetro.
+		/*
+		 * Outro widget é o ToogleButton. que muda de situação quando clicado
+		 * mais uma vez, ou seja, um clique um estado, e quando clicado
+		 * novamente vai apresentar outro estado (Dois estado).
+		 */
+		ToggleButton toggleButton = new ToggleButton("Botão não clicado", "Botão clicado");
+		/**
+		 * Com esse botão, em cada estado desse, já possível personalizar as
+		 * ações que cada estado. usando também o método clickHandler()
+		 */
+		//
+		// PushButton
+		//
+		/**
+		 * Já para um botão mais personalizado como conteúdo, cor ou imagens
+		 * dentro dele, se usa o Pushbutton. Outra característica é que para
+		 * passar para a segunda ação, o mouse precisa pressionar o botão.
+		 */
+		PushButton pushButton = new PushButton("Primeiro texto", "Segundo texto");
+		// Também possui um construtor sobrecarregado. dando control + space é
+		// fácil de ver tais construtores. Outra forma de instanciar usando
+		// imagens:
+		// PushButton pushButton = new PushButton(new
+		// Image("pathComLocalDaImagem"),
+		// "Segundo texto");
+		//
+		// RadioButton
+		/**
+		 * Usado para seleção de itens exclusivos - sexo por exemplo e estado
+		 * civil
+		 */
+		RadioButton radioButtonFeminino = new RadioButton("Sexo", "Feminino");
+		// supondo que por padrão os valor já venha marcado.
+		radioButtonFeminino.setValue(true);
+		RadioButton radioButtonMasculino = new RadioButton("Sexo", "Masculino");
+		RadioButton radioButtonSolteiro = new RadioButton("Estado Civil", "Solteiro");
+		RadioButton radioButtonCasado = new RadioButton("Estado Civil", "Casado");
+		//
+		// Checkbox
+		CheckBox curso1 = new CheckBox("Java");
+		CheckBox curso2 = new CheckBox("Android");
+		CheckBox curso3 = new CheckBox("MySQL");
+		// Flag já selecionada.
+		curso1.setValue(true);
 		botao.addClickHandler(new ClickHandler()
 		{
 			@Override public void onClick(ClickEvent event)
 			{
-				Window.alert("fui clicado");
+				if (toggleButton.isDown())
+				{
+					Window.alert("Botão pressionado.");
+				}
+				else
+				{
+					Window.alert("Botão liberado");
+				}
 			}
 		});
 		// Para adicionar um label à página ou qualquer outro elemento(também
 		// chamado de Widgets), é
 		// necessário outra classe chamada
 		// RootPanel.
-		RootPanel.get().add(label1);
-		RootPanel.get().add(htmlQualquer);
+		RootPanel.get("primeiraColuna").add(label1);
+		RootPanel.get("segundaColuna").add(htmlQualquer);
 		// A função deste método get() é utilizar um elemento dentro da página
 		// html
 		RootPanel.get().add(htmlEmNegrito);
 		RootPanel.get().add(linkReferenciado);
 		RootPanel.get().add(botao);
-		// Não somente essas características, também os de link.
+		// Este método get ele é sobrecarregado, ele também pode ser um Id como
+		// parâmetro do tipo String.
+		// ToggleButton iniciado.
+		// Personalizando os estados.
+		RootPanel.get().add(toggleButton);
+		RootPanel.get().add(pushButton);
+		RootPanel.get().add(radioButtonMasculino);
+		RootPanel.get().add(radioButtonFeminino);
+		RootPanel.get().add(radioButtonSolteiro);
+		RootPanel.get().add(radioButtonCasado);
+		RootPanel.get().add(curso1);
+		RootPanel.get().add(curso2);
+		RootPanel.get().add(curso3);
 	}
 	//
 	// Linha toda comentada para ser feita do zero. Todo este corpo deve está
