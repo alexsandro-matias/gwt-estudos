@@ -2,8 +2,6 @@
 //https://www.youtube.com/watch?v=GukLbyJc7MU&list=PL3821B1F5BC3E5C11&index=8
 package br.edu.ifpe.extensao.client;
 
-import java.awt.Checkbox;
-
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -12,10 +10,15 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ToggleButton;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -104,18 +107,35 @@ public class Extensao implements EntryPoint
 				}
 			}
 		});
-		// Para adicionar um label à página ou qualquer outro elemento(também
-		// chamado de Widgets), é
-		// necessário outra classe chamada
-		// RootPanel.
+		//
+		// TextBox
+		/**
+		 * Este elemento é utilizado quando se deseja, como o próprio nome
+		 * define, uma caixa de texto na página. O que é algo similar ao
+		 * TextField em Java.
+		 */
+		TextBox textBox = new TextBox();
+		PasswordTextBox senha = new PasswordTextBox();
+		// Este é um texto de observação que alguém queria colocar que pode ser
+		// redimensionado.
+		TextArea observacao = new TextArea();
+		// A função deste método get() é utilizar um elemento dentro da página
+		// html.
+		// Lista de itens - ListBox
+		ListBox listaDeNome = new ListBox();
+		listaDeNome.addItem("Alexsandro");
+		listaDeNome.addItem("Paulo Guedes");
+		listaDeNome.addItem("Rafael Moraes");
 		RootPanel.get("primeiraColuna").add(label1);
 		RootPanel.get("segundaColuna").add(htmlQualquer);
-		// A função deste método get() é utilizar um elemento dentro da página
-		// html
 		RootPanel.get().add(htmlEmNegrito);
 		RootPanel.get().add(linkReferenciado);
 		RootPanel.get().add(botao);
 		// Este método get ele é sobrecarregado, ele também pode ser um Id como
+		// Para adicionar um label à página ou qualquer outro elemento(também
+		// chamado de Widgets), é
+		// necessário outra classe chamada
+		// RootPanel.
 		// parâmetro do tipo String.
 		// ToggleButton iniciado.
 		// Personalizando os estados.
@@ -141,11 +161,27 @@ public class Extensao implements EntryPoint
 				{
 					Window.alert("Estado civil: Solteiro.");
 				}
+				Window.alert(listaDeNome.getSelectedItemText());
 			}
 		});
+		//
+		// Estes elementos, ao invés de serem adicionados a página de forma
+		// aleatória, agora serão colocados dentro de um painel vertical.
+		// RootPanel.get().add(textBox);
+		// RootPanel.get().add(senha);
+		// RootPanel.get().add(observacao);
+		//
+		VerticalPanel painel = new VerticalPanel();
+		painel.add(textBox);
+		painel.add(senha);
+		painel.add(observacao);
+		//
+		// Adicionando a lista de Pessoas ao painel vertical.
+		painel.add(listaDeNome);
+		RootPanel.get().add(painel);
 	}
-	//
-	// Linha toda comentada para ser feita do zero. Todo este corpo deve está
+	// Esta parte é criada como projeto de exemplo.Linha toda comentada para ser
+	// feita do zero. Todo este corpo deve está
 	// dentro de Extensao.
 	// // sugestão de exclusão destes atributos.
 	// // /**
