@@ -49,6 +49,8 @@ public class Extensao implements EntryPoint
 		 * mais uma vez, ou seja, um clique um estado, e quando clicado
 		 * novamente vai apresentar outro estado (Dois estado).
 		 */
+		// Verificando quais itens foram selecionados ou marcados.
+		Button botaoStatus = new Button("Clique para ver o que estado civil.");
 		ToggleButton toggleButton = new ToggleButton("Botão não clicado", "Botão clicado");
 		/**
 		 * Com esse botão, em cada estado desse, já possível personalizar as
@@ -86,7 +88,7 @@ public class Extensao implements EntryPoint
 		CheckBox curso1 = new CheckBox("Java");
 		CheckBox curso2 = new CheckBox("Android");
 		CheckBox curso3 = new CheckBox("MySQL");
-		// Flag já selecionada.
+		// Flag já selecionada já quando a página é atualizada.
 		curso1.setValue(true);
 		botao.addClickHandler(new ClickHandler()
 		{
@@ -126,8 +128,22 @@ public class Extensao implements EntryPoint
 		RootPanel.get().add(curso1);
 		RootPanel.get().add(curso2);
 		RootPanel.get().add(curso3);
+		RootPanel.get().add(botaoStatus);
+		botaoStatus.addClickHandler(new ClickHandler()
+		{
+			@Override public void onClick(ClickEvent event)
+			{
+				if (radioButtonCasado.getValue())
+				{
+					Window.alert("Estado civil: Casado");
+				}
+				else
+				{
+					Window.alert("Estado civil: Solteiro.");
+				}
+			}
+		});
 	}
-
 	//
 	// Linha toda comentada para ser feita do zero. Todo este corpo deve está
 	// dentro de Extensao.
@@ -302,5 +318,4 @@ public class Extensao implements EntryPoint
 	// // nameField.addKeyUpHandler(handler);
 	// // final do comentário
 	// }
-
 }
