@@ -8,17 +8,23 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
+import com.google.gwt.user.client.ui.MultiWordSuggestOracle.MultiWordSuggestion;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SuggestBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ToggleButton;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.datepicker.client.DatePicker;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -30,7 +36,7 @@ public class Extensao implements EntryPoint
 	{
 		// Da mesma forma que o código é JavaScript, também existe um método
 		// chamado alert.
-		Window.alert("Bem-vindo.");
+		// Window.alert("Bem-vindo.");
 		Label label1 = new Label("Isto é uma label.");
 		// Um label pode ser considerado um texto relativamente simples na
 		// página. Então para adicionar um texto que tenha alguma
@@ -77,7 +83,7 @@ public class Extensao implements EntryPoint
 		//
 		// RadioButton
 		/**
-		 * Usado para seleção de itens exclusivos - sexo por exemplo e estado
+		 * Usado para seleção de itens exclusivos - sexo, por exemplo, e estado
 		 * civil
 		 */
 		RadioButton radioButtonFeminino = new RadioButton("Sexo", "Feminino");
@@ -126,6 +132,64 @@ public class Extensao implements EntryPoint
 		listaDeNome.addItem("Alexsandro");
 		listaDeNome.addItem("Paulo Guedes");
 		listaDeNome.addItem("Rafael Moraes");
+		//
+		// Para mostrar datas na página ou um calendário, usamos o DatePicker
+		DatePicker dataSelecionada = new DatePicker();
+		// Porém, quando instanciado apenas mostra o calendário, mas não a
+		// seleção da atual. Isso na versão de quando o curso foi ministrado.
+		// Mas na versão atual do pacote, isso não ocorre mais, ou seja, a forma
+		// como é apresentada do calendário já se mostra de forma bem mais
+		// amigável e com a data atual selecionada. Com a mudança de
+		// configuração, não alterou nada, o que pode-se inferir que a
+		// atualização do uso do tema convergiu para a configuração atual do
+		// pacote.
+		//
+		// SuggestBox
+		/**
+		 * Um conjunto de texto para caixa de seleções. Ele serve para uma
+		 * pesquisa. Ela se torno muito útil por que não há a necessidade de
+		 * fazer busca em Banco de dados para que se possa fazer uma pesquisa.
+		 * Basta adicionar tais itens a um MultiWordSuggestOracle para criar uma
+		 * lista de cursos que podem ser pesquisado de forma muito fácil. Então
+		 * toda a parte de SQL é abstraída do programador. Até por que os
+		 * valores ficam armazenados em memória e destaca em negrito o que foi
+		 * digitada na busca.
+		 */
+		// Grid
+		/**
+		 * Para imprimir na página algo parecido com uma tabela (grade) usa-se a
+		 * classe Grid.
+		 * 
+		 */
+		// Grid tabela = new Grid(3, 2);
+		FlexTable tabela = new FlexTable();
+		tabela.setText(0, 0, "Nome do Curso");
+		tabela.setText(0, 1, "Tipo");
+		// Comentando esta linha para simular uma célula vazia.
+		// tabela.setText(1, 0, "Java Básico");
+		// Trocando o conteúdo da célula para um ListBox
+		tabela.setWidget(1, 0, new Button("Botão"));
+		tabela.setText(1, 1, "Básico");
+		tabela.setText(2, 0, "UML com Java");
+		tabela.setText(2, 1, "Intermediário");
+		// Linha adicionada para acrescentar uma coluna.
+		tabela.setText(2, 2, "Pra quem ??");
+		tabela.setBorderWidth(4);
+		// tabela.getCellFormatter().setWidth(2, 1, "150px");
+		// Porém, este tipo de tabela (grade) ainda é muito engessado, ou seja,
+		// não tem muita flexibilidade. Pra isso foi criado outro componente
+		// chamado Flextable que permite a inserção de botões ou de mais colunas
+		// e linhas numa tabela anteriormente instanciada. Linha de instanciação
+		// do Grid será comentada.
+		// Inicialmente, uma das vantagens do FlexTable é que não é necessária a
+		// passagem de parâmetros para o construtor.
+		MultiWordSuggestOracle listaDeCursos = new MultiWordSuggestOracle();
+		listaDeCursos.add("Java Básico");
+		listaDeCursos.add("Java EE");
+		listaDeCursos.add("Padrões de Projetos com Java");
+		listaDeCursos.add("Linguagem UML com Java");
+		SuggestBox pesquisaCursos = new SuggestBox(listaDeCursos);
+		//
 		RootPanel.get("primeiraColuna").add(label1);
 		RootPanel.get("segundaColuna").add(htmlQualquer);
 		RootPanel.get().add(htmlEmNegrito);
@@ -178,9 +242,17 @@ public class Extensao implements EntryPoint
 		//
 		// Adicionando a lista de Pessoas ao painel vertical.
 		painel.add(listaDeNome);
+		painel.add(pesquisaCursos);
+		painel.add(dataSelecionada);
+		//
+		// Adicionando a tabela.
+		RootPanel.get().add(tabela);
 		RootPanel.get().add(painel);
 	}
-	// Esta parte é criada como projeto de exemplo.Linha toda comentada para ser
+	
+	/***
+	 * 
+	 * // Esta parte é criada como projeto de exemplo.Linha toda comentada para ser
 	// feita do zero. Todo este corpo deve está
 	// dentro de Extensao.
 	// // sugestão de exclusão destes atributos.
@@ -353,5 +425,5 @@ public class Extensao implements EntryPoint
 	// // sendButton.addClickHandler(handler);
 	// // nameField.addKeyUpHandler(handler);
 	// // final do comentário
-	// }
-}
+	 }
+	

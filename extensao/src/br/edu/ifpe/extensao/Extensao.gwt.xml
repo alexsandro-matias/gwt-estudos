@@ -10,6 +10,10 @@
 	<!-- Eles são os módulo herdados -->
 	<inherits name='com.google.gwt.user.User' />
 
+	<!-- Adicionando estilos específicos - estes serão herdados como o nome 
+		sugere: -->
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+
 	<!-- Inherit the default GWT style sheet. You can change -->
 	<!-- the theme of your GWT application by uncommenting -->
 	<!-- any one of the following lines. -->
@@ -23,7 +27,12 @@
 	<!-- Specify the app entry point class. -->
 	<!-- Neste pacote é onde há a conversão de código Java em Javascript. Que 
 		é o ponto de entrada do código. Algo similiar ao método main em Java. -->
-	<entry-point class='br.edu.ifpe.extensao.client.Extensao' />
+	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
+
+
+	<!-- adicionando outro EntryPoint de outro arquivo. -->
+	<entry-point
+		class='br.edu.ifpe.extensao.client.PainelPopUp' />
 
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
