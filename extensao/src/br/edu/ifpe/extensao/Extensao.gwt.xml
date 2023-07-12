@@ -30,12 +30,16 @@
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
 
+
+
 	<!-- adicionando outro EntryPoint de outro arquivo. -->
 	<entry-point
 		class='br.edu.ifpe.extensao.client.PainelPopUp' />
 
+
 	<!-- Specify the paths for translatable code -->
-	<source path='client' />
+	<source path='
+		client ' />
 	<source path='shared' />
 
 	<!-- allow Super Dev Mode -->
