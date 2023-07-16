@@ -31,7 +31,7 @@
 
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Outro' /> -->
 	<entry-point
-		class='br.edu.ifpe.extensao.client.exemploPopUpPanel' />
+		class='br.edu.ifpe.extensao.client.PainelHorizontal' />
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
 
