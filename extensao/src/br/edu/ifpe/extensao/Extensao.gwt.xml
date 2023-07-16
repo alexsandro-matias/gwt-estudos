@@ -26,15 +26,14 @@
 
 	<!-- Specify the app entry point class. -->
 	<!-- Neste pacote é onde há a conversão de código Java em Javascript. Que 
+		adicionando outro EntryPoint de outro arquivo. <entry-point class='br.edu.ifpe.extensao.client.PainelPopUp' 
 		é o ponto de entrada do código. Algo similiar ao método main em Java. -->
+
+	<!-- <entry-point class='br.edu.ifpe.extensao.client.Outro' /> -->
+	<entry-point
+		class='br.edu.ifpe.extensao.client.exemploPopUpPanel' />
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
-
-
-
-	<!-- adicionando outro EntryPoint de outro arquivo. -->
-	<entry-point
-		class='br.edu.ifpe.extensao.client.PainelPopUp' />
 
 
 	<!-- Specify the paths for translatable code -->
