@@ -19,15 +19,21 @@ public class exemploPopUpPanel implements EntryPoint
 		{
 			@Override public void onClick(ClickEvent event)
 			{
-				painelPopUp.show();
-				// Mas desta forma, uma vez mostrado este componente não é
-				// possível fecha-lo. Para isso, precisamos mudar o construtor e
-				// passar o parâmetro True. Isso fará o método autohide como
-				// True. Ou seja, ao clicar fora do componente, ele desaparece.
-				// Para mostrar centralizado.
-				painelPopUp.center();
-				// Ou para ajustar a posição em pixels.
-				painelPopUp.setPopupPosition(300, 300);
+				// painelPopUp.show();
+				// // Mas desta forma, uma vez mostrado este componente não é
+				// // possível fecha-lo. Para isso, precisamos mudar o
+				// construtor e
+				// // passar o parâmetro True. Isso fará o método autohide como
+				// // True. Ou seja, ao clicar fora do componente, ele
+				// desaparece.
+				// // Para mostrar centralizado.
+				// painelPopUp.center();
+				// // Ou para ajustar a posição em pixels.
+				// painelPopUp.setPopupPosition(300, 300);
+				//
+				// usando a classe filha do Pop up Panel
+				// new FilhaDePopUpPanel().show();
+				new FilhaDeDialogBox().show();
 			}
 		});
 		RootPanel.get().add(botaoPopUpPanel);
