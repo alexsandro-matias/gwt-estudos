@@ -12,18 +12,20 @@ public class PainelHorizontal implements EntryPoint
 {
 	@Override public void onModuleLoad()
 	{
-		Button botao1 = new Button("Botão 1");
-		Button botao2 = new Button("Botão 2");
-		TextBox textBoxUsuario = new TextBox();
-		PasswordTextBox senha = new PasswordTextBox();
-		Label labelUsuario = new Label("Usuário");
-		Label labelSenha = new Label("Senha");
-		//
-		HorizontalPanel painelHorizontal = new HorizontalPanel();
-		painelHorizontal.add(labelUsuario);
-		painelHorizontal.add(textBoxUsuario);
-		painelHorizontal.add(labelSenha);
-		painelHorizontal.add(senha);
-		RootPanel.get().add(painelHorizontal);
+		// Movendo todo o código para a classe implementada
+		// Button botao1 = new Button("Botão 1");
+		// Button botao2 = new Button("Botão 2");
+		// TextBox textBoxUsuario = new TextBox();
+		// PasswordTextBox senha = new PasswordTextBox();
+		// Label labelUsuario = new Label("Usuário");
+		// Label labelSenha = new Label("Senha");
+		// //
+		// HorizontalPanel painelHorizontal = new HorizontalPanel();
+		// painelHorizontal.add(labelUsuario);
+		// painelHorizontal.add(textBoxUsuario);
+		// painelHorizontal.add(labelSenha);
+		// painelHorizontal.add(senha);
+		// RootPanel.get().add(painelHorizontal);
+		new FilhaDeDialogBox();
 	}
 }
