@@ -9,6 +9,8 @@
 	<!-- Inherit the core Web Toolkit stuff. -->
 	<!-- Eles são os módulo herdados -->
 	<inherits name='com.google.gwt.user.User' />
+	<stylesheet src="folha-estilo.css" />
+
 
 	<!-- Adicionando estilos específicos - estes serão herdados como o nome 
 		sugere: -->
@@ -31,7 +33,7 @@
 
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Outro' /> -->
 	<entry-point
-		class='br.edu.ifpe.extensao.client.FolhaDeEstilo' />
+		class='br.edu.ifpe.extensao.client.TiposPaineis' />
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
 

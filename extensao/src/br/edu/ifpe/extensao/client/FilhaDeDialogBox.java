@@ -19,6 +19,7 @@ public class FilhaDeDialogBox extends DialogBox
 	{
 		super(true);
 		Button botao1 = new Button("Enviar");
+//		botao1.setStyleName("meubotao");
 		TextBox textBoxUsuario = new TextBox();
 		PasswordTextBox senha = new PasswordTextBox();
 		Label labelUsuario = new Label("Usuário");
