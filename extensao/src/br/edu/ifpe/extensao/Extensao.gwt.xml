@@ -12,15 +12,15 @@
 
 	<!-- Adicionando estilos específicos - estes serão herdados como o nome 
 		sugere: -->
-	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+	<!-- <inherits name='com.google.gwt.user.theme.standard.Standard' /> -->
 
 	<!-- Inherit the default GWT style sheet. You can change -->
 	<!-- the theme of your GWT application by uncommenting -->
 	<!-- any one of the following lines. -->
-	<inherits name='com.google.gwt.user.theme.clean.Clean' />
+	<!-- <inherits name='com.google.gwt.user.theme.clean.Clean' /> -->
 	<!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
 	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
-	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark' /> -->
 
 	<!-- Other module inherits -->
 
@@ -31,7 +31,7 @@
 
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Outro' /> -->
 	<entry-point
-		class='br.edu.ifpe.extensao.client.PainelHorizontal' />
+		class='br.edu.ifpe.extensao.client.FolhaDeEstilo' />
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
 

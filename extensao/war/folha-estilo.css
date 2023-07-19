@@ -1,0 +1,19 @@
+.gwt-Button {
+	font-size: 20px;
+	background-color: red;
+}
+/* Se quiser mais de um item com a mesma configuração */
+/* .gwt-Button, .gwt-Label {
+	font-size: 20px;
+	background-color: red;
+} */
+.gwt-Label {
+	font-size: 20px;
+	background-color: blue;
+}
+/* É possível passar as cores em Hexadecimal */
+.gwt-TextBox {
+	font-size: 20px;
+	background-color: #ffa500;
+	color: black;
+}
