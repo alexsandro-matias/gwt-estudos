@@ -20,7 +20,7 @@
 	<!-- the theme of your GWT application by uncommenting -->
 	<!-- any one of the following lines. -->
 	<!-- <inherits name='com.google.gwt.user.theme.clean.Clean' /> -->
-	<!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
 	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
 	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark' /> -->
 
@@ -33,7 +33,7 @@
 
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Outro' /> -->
 	<entry-point
-		class='br.edu.ifpe.extensao.client.TiposPaineis' />
+		class='br.edu.ifpe.extensao.client.TabPanelTest' />
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
 
