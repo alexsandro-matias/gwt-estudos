@@ -1,57 +1,36 @@
 package br.edu.ifpe.extensao.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TabPanel;
+import com.google.gwt.user.client.ui.TextBox;
 
 public class TabPanelTest implements EntryPoint
 {
-	// public TabPanelTest()
-	// {
-	// }
 	@Override public void onModuleLoad()
 	{
-		Label label = new Label("Hello, GWT!!!");
-		Button button = new Button("Click me");
-		Button botaoVaiParaJava = new Button("Aba do Java");
-		button.addClickHandler(new ClickHandler()
-		{
-			@Override public void onClick(ClickEvent event)
-			{
-				label.setVisible(!label.isVisible());
-			}
-		});
-		TabPanel painelAbsoluto = new TabPanel();
-		painelAbsoluto.setSize("400", "300px");
-		FlowPanel flowPanelQualquer = new FlowPanel();
-		flowPanelQualquer.add(new Label("Conteúdo do Label"));
-		FlowPanel flowPanelJava = new FlowPanel();
-		flowPanelJava.add(new Label("Painel Java"));
-		FlowPanel flowPanelAndroid = new FlowPanel();
-		flowPanelAndroid.add(new Label("Curso de Android"));
-		flowPanelAndroid.add(botaoVaiParaJava);
-		//
-		painelAbsoluto.add(flowPanelQualquer, "Curso qualquer");
-		painelAbsoluto.add(flowPanelJava, "Java");
-		painelAbsoluto.add(flowPanelAndroid, "Android");
-		// Para explicitar qual das abas deve ser aberta diretamente, usa-se o
-		// método selectTab com o respectivo índice.
-		//
-		// Adicionando uma ação ao botão para sair do android para o Java.
-		botaoVaiParaJava.addClickHandler(new ClickHandler()
-		{
-			@Override public void onClick(ClickEvent event)
-			{
-				painelAbsoluto.selectTab(1);
-			}
-		});
-		painelAbsoluto.selectTab(2);
-		painelAbsoluto.setStyleName("painel");
-		RootPanel.get().add(painelAbsoluto);
+		FlowPanel painel = new FlowPanel();
+		// Neste elementos, os widgets são adicionados um ao lado do outro, e
+		// quando não couber, ele passa o elemento para a próxima linha. No caso
+		// abaixo, como o espaço é pequeno, isso acontecer.
+		// painel.setSize("100px", "100px");
+		// Já na linha de baixo, o elemento tem um espaço bem maior, cabendo
+		// mais botões, ou seja, não passando para o linha de baixo.
+		painel.setStyleName("panel");
+		painel.setSize("700px", "700px");
+		painel.add(new Button("Salvar"));
+		painel.add(new Button("Alterar"));
+		painel.add(new Button("Excluir"));
+		painel.add(new Button("Imprimir"));
+		painel.add(new Button("Sair"));
+		
+		// Colocando itens em determinadas posições:
+		painel.insert(new TextBox(), 1);
+		painel.insert(new CheckBox("Selecionado"), 2);
+		
+		RootPanel.get().add(painel);
+		// Já para os labels, os elementos são adicionados de cima para baixo.
 	}
 }
