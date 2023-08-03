@@ -22,7 +22,7 @@
 	<!-- <inherits name='com.google.gwt.user.theme.clean.Clean' /> -->
 	<!-- <inherits name='com.google.gwt.user.theme.standard.Standard' /> -->
 	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
-	<inherits name='com.google.gwt.user.theme.dark.Dark' />
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark' /> -->
 
 	<!-- Other module inherits -->
 
@@ -33,7 +33,7 @@
 
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Outro' /> -->
 	<entry-point
-		class='br.edu.ifpe.extensao.client.TabPanelTest' />
+		class='br.edu.ifpe.extensao.client.TabPanelComImagem' />
 	<!-- <entry-point class='br.edu.ifpe.extensao.client.Extensao' /> -->
 
 
